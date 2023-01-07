@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Inheritance And Prototype</h1>
+    <ol>
+        <li>
+            <h2>Create 2 objects - parent and child. Attach methods to parent and use those methods in child object using parents prototype</h2>
+            <h3>CODE :</h3>
+            <pre>
+                let Parentobj={
+                    calAge:function(){
+                        console.log(`${this.fname} ${this.lname} ${this.age}`)
+                    }
+                }
+                const childobj=Object.create(Parentobj);
+                childobj.fname="praveen"
+                childobj.lname="raj"
+                childobj.age="23"
+                
+                childobj.calAge()
+            </pre>
+            <h3>OUTPUT :</h3>
+            <pre>
+                praveen raj 23
+            </pre>
+        </li>
+        <li>
+            <h2>Write code to explain prototype chaining</h2>
+            <h3>CODE :</h3>
+            <pre>
+                class Person {
+                    constructor() {
+                      this.gender = 'male';
+                    }
+                    printPerson() {}
+                  }
+                  class User extends Person {
+                    constructor() {
+                      super();
+                      this.name = 'praveen';
+                    }
+                    printUser() {}
+                  }
+                  var count = new User();
+                  console.log(count); 
+                
+            </pre>
+            <h3>OUTPUT :</h3>
+            <pre>
+                User {gender: 'male', name: 'praveen'}
+            </pre>
+        </li>
+        <li>
+            <h2>Add a method to calculate sum of all elements in Array in array's protype, use that method to calculate sum for multiple arrays</h2>
+            <h3>CODE :</h3>
+            <pre>
+                let childObj ={
+                    count : function(arr){
+                        let count =0;
+                
+                        for(i=0; i< arr.length; i++){
+                            count+=arr[i];
+                        }
+                        console.log(count)
+                    }
+                }
+                
+                childObj.count([1,2,3,4,5,6,])
+            </pre>
+            <h3>OUTPUT :</h3>
+            <pre>
+                21
+            </pre>
+        </li>
+        <li>
+            <h2>Write a JavaScript function to retrieve all the names of object's own and inherited properties.</h2>
+            <h3>CODE :</h3>
+            <pre>
+                let obj ={
+                    name : "praveen",
+                    age : "23"
+                }
+                
+                let result = Object.keys(obj);
+                console.log(result);
+            </pre>
+            <h3>OUTPUT :</h3>
+            <pre>
+                ['name', 'age']
+            </pre>
+        </li>
+    </ol>
+    <script src="index.js"></script>
+</body>
+</html>
